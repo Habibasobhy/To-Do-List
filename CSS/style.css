@@ -1,0 +1,251 @@
+
+:root{
+    --bg-dark-blue : #000430;
+    --bg-light-blue : #171c48;
+    --pink-color : #f86bbd;
+    --light-color : #fff;
+    --light-teal-color : #24feee;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color : var(--bg-dark-blue);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-color);
+}
+
+.container{
+    width: 50%;
+}
+
+.container .stats-container{
+    border: 3px solid var(--pink-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 20px;
+}
+
+.container .stats-container .stats-numbers{
+    background-color :var(--pink-color);
+    width: 100px;
+    height: 100px;
+    border-radius : 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.container .stats-container .details{
+    width: 70%;
+}
+
+.container .stats-container .details p{
+    margin-top: 5px;
+}
+
+#progressBarPercentage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#progressBar{
+    height: 10px;
+    width: 90%;
+    background-color : var(--bg-light-blue);
+    border-radius : 5px;
+}
+
+#progress{
+    height: 10px;
+    width: 0%;
+    background-color : var(--light-teal-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+form{
+    margin-top: 60px;
+    display: flex;
+    gap: 15px;
+}
+
+form input {
+    flex: 1;
+    padding: 16px;
+    background-color : var(--bg-light-blue);
+    border : 1px solid var(--pink-color);
+    border-radius : 10px;
+    color : var(--light-color);
+}
+
+form input:focus {
+    color : var(--light-color);
+    outline: none;
+    border: 3px solid var(--pink-color);
+}
+
+form button {
+    width: 50px;
+    height: 50px;
+    background-color : var(--pink-color);
+    border : none;
+    display: flex;
+    justify-content: center;
+    align-items : center;
+    border-radius : 50%;
+    color : var(--light-color);
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+form button img{
+    width: 60%;
+}
+
+#addTaskBtn{
+    display: block;
+}
+
+#updateTaskBtn {
+    display: none;
+}
+
+.task-list{
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.task-item{
+    display: flex;
+    gap: 10px;
+    align-items : center;
+}
+
+.task-item p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--light-teal-color);
+}
+
+.task-list li{
+    background-color : var(--bg-light-blue);
+    border-radius : 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items : center;
+    padding: 10px 30px;
+    margin-top: 15px;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+.task-list li.animate-in {
+    opacity: 0;
+}
+
+.task-list li.animate-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.task-list li.remove {
+    opacity: 0;
+    transform: translateY(-20px); /* Move up slightly during fade-out */
+}
+
+.task-list li input{
+    width: 20px;
+    height: 20px;
+    outline: none;
+}
+
+.task-list .icons{
+    width: 80px;
+    height: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.task-list .icons img{
+    width: 50%;
+    cursor: pointer;
+}
+
+.task-list .icons img:nth-child(2){
+    filter: brightness(80%);
+}
+
+#clearTasks{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#clearAllTasks{
+    background-color : var(--pink-color);
+    padding: 10px 30px;
+    border : none;
+    cursor : pointer;
+    color : var(--light-color);
+    border-radius : 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+form button:hover,
+#clearAllTasks:hover{
+    background-color : #df1d8e;
+}
+
+#notificationMessage{
+    position: fixed;
+    top: 10px;
+    right: 5px;
+    padding: 30px;
+    border-radius : 5px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  /* Class for animating tasks before removal */
+  .fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+
+@media screen and (max-width : 768px){
+    .container{
+        width: 80%;
+    }
+}

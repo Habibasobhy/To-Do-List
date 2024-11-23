@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List With js</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="stats-container">
+            <div class="details">
+                <h1>Todo Done</h1>
+                <p>Keep it up!</p>
+                <div id="progressBarPercentage">
+                    <div id="progressBar">
+                        <div id="progress">
+    
+                        </div>
+                    </div>
+                    <div id="percentageCompletedTasks">0%</div>
+                </div>
+            </div>
+            <div class="stats-numbers">
+                <p id="numbers">0 / 0</p>
+            </div>
+        </div>
+
+        <form id="form">
+            <input type="text" placeholder="Enter Your Task" id="taskName">
+            <button type="submit" id="addTaskBtn">+</button>
+            <button type="submit" id="updateTaskBtn">
+                <img src="Images/edit-247.png" alt="edit-icon">
+            </button>
+        </form>
+
+        <ul class="task-list" id="list"></ul>
+
+        <div id="clearTasks">
+            <button id="clearAllTasks">Clear All Tasks</button>
+        </div>
+
+        <div id="notificationMessage"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+</body>
+</html>
